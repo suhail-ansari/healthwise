@@ -1,0 +1,829 @@
+{
+	"id": "2463bfbc-d4ca-df8b-4a44-beb8577e409c",
+	"name": "Healthwise",
+	"description": "This is the API for Healthwise App.\n\nNotes:\n    \n    1. Assume all parameters are required until marked as optional\n    2. All APIs except the \"Login and Sign up Routes\" requires the \"token\" parameter\n        2.1 if it is a GET request, then supply the token as query parameter\n        2.2 if it is a POST/PUT request, then supply the token in body parameter\n        2.3 All POST requests are url-encoded",
+	"order": [],
+	"folders": [
+		{
+			"id": "fe700dc3-81ca-0495-d9bb-b19c34ee0321",
+			"name": "Activity Routes",
+			"description": "",
+			"order": [
+				"04605696-39a8-ce02-20b8-97bdea3690f2",
+				"54e3aa86-00ee-a92e-4605-a2b161512390",
+				"8e6fb795-c735-4947-1d50-8c89e0eee0ed"
+			],
+			"owner": 0
+		},
+		{
+			"id": "091cd3cb-85bb-d29e-d8ae-e8b5b762d821",
+			"name": "Food Routes",
+			"description": "",
+			"order": [
+				"97795a29-1d4a-ea9a-f23a-3176c758c56b",
+				"e5cf7a18-4589-7875-d367-2165318f6ea2",
+				"5a8c5658-42b9-593f-a56d-fb63440cca51",
+				"6076f8a9-2927-9d2b-55cc-d0e57800c978"
+			],
+			"owner": 0,
+			"collectionId": "2463bfbc-d4ca-df8b-4a44-beb8577e409c"
+		},
+		{
+			"id": "9b311a15-1db8-1c3d-d863-144e490cb0be",
+			"name": "Journal Routes",
+			"description": "",
+			"order": [
+				"7de782a3-d6ad-b046-1d23-47893ae22cca",
+				"4b1504cf-bf9a-717e-6cda-80e51e583d46",
+				"5c1ad2cd-bb6c-4a66-0f64-0970b25cce20"
+			],
+			"owner": 0
+		},
+		{
+			"id": "d0957e0d-f0f8-7d3d-c081-1fe2b4125481",
+			"name": "Login and Sign up Routes",
+			"description": "",
+			"order": [
+				"0b0c4ba2-cea6-4422-cb76-c3725ef5010b",
+				"0a1e8d99-b086-a488-1300-57441c727cfe",
+				"cc03a087-1c22-8ec6-84d1-5f15bd90ee08"
+			],
+			"owner": 0,
+			"collectionId": "2463bfbc-d4ca-df8b-4a44-beb8577e409c"
+		},
+		{
+			"id": "6d1071e7-3943-0c20-0581-a6c441bb8e3b",
+			"name": "Profile Routes",
+			"description": "",
+			"order": [
+				"94842580-45dc-36d9-fa76-f1ca65b3e76f",
+				"8568d72e-2e77-bc55-374e-4b54654f36ab",
+				"bfd5eb3f-83d8-f788-b0b5-afdfbc6f8214"
+			],
+			"owner": 0
+		},
+		{
+			"id": "9d2cac10-7a1d-95cc-4740-46b639ce3df8",
+			"name": "User Routes",
+			"description": "",
+			"order": [
+				"e0c189b3-5abf-5df4-2fcf-3ecb8a610cf4",
+				"936ce961-f63c-75fc-de06-2b0930f38641"
+			],
+			"owner": 0,
+			"collectionId": "2463bfbc-d4ca-df8b-4a44-beb8577e409c"
+		}
+	],
+	"timestamp": 1439664445768,
+	"owner": "123031",
+	"remoteLink": "https://www.getpostman.com/collections/bcbd8d8b8cff1168467e",
+	"public": false,
+	"requests": [
+		{
+			"id": "04605696-39a8-ce02-20b8-97bdea3690f2",
+			"headers": "",
+			"url": "{{url}}/user/1/journal/activity/?group=1&journal[1]=1&journal[2]=2&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE0Mzk2NjQ2MzcsImV4cCI6MTQ0MjI1NjYzN30.lIkwN0RFqN0uusdkwj4DIbgk-bzlIK1ZMfsgzg701n8",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1439746738068,
+			"name": "Get all Activity Items for multiple journal ids",
+			"description": "Get all Activity Items for multiple journal ids\n\nURL:\n\n    /user/:user_id/journal/activity\n    \n    \nMETHOD:\n    \n    GET\n    \nURL PARAMS:\n\n    user_id = user_id\n    \nQUERY PARAMS:\n    \n    journal = Array[journal_ids]\n    token = token\n    group = 1 (optional, groups activity_items by their journal_ids)\n\nURL EXAMPLE: \n    \n    /user/1/journal/activity?journal[1]=1&journal[2]=2&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE0Mzk2NjcwMzksImV4cCI6MTQ0MjI1OTAzOX0.7KevQbfg7YqmNFjpQynd_FH0jEI1FkXG5U4znJZGIRU\n    \nRESPONSE:\n\n    {\n      \"activity_items\": {\n        \"1\": [\n          {\n            \"id\": 1,\n            \"activity_name\": \"Running\",\n            \"activity_type\": \"S\",\n            \"calories_burnt\": 120,\n            \"duration\": 15,\n            \"journal_id\": 1,\n            \"user_id\": 1,\n            \"created_at\": \"2015-08-05T18:52:48.000Z\",\n            \"updated_at\": \"2015-08-05T18:52:48.000Z\"\n          }\n        ]\n      }\n    }",
+			"collectionId": "2463bfbc-d4ca-df8b-4a44-beb8577e409c",
+			"responses": [],
+			"folder": "fe700dc3-81ca-0495-d9bb-b19c34ee0321"
+		},
+		{
+			"id": "0a1e8d99-b086-a488-1300-57441c727cfe",
+			"headers": "",
+			"url": "{{url}}/login",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "email",
+					"value": "kapur.gayatri@gmail.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "qwerty",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1446479443418,
+			"name": "Login",
+			"description": "Login into Healthwise\n\nURL: \n    \n    /login\n\nMETHOD: \n    \n    POST\n\nPOST PARAMS:\n    \n    email = email\n    password = password\n\nRESPONSE:\n\n    {\n      \"user\": {\n        \"email\": \"hwtestuser@gmail.com\",\n        \"id\": 1,\n        \"created_at\": \"2015-08-05T18:15:07.000Z\",\n        \"updated_at\": \"2015-08-15T15:28:11.000Z\"\n      },\n      \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE0Mzk2NjQ2MzcsImV4cCI6MTQ0MjI1NjYzN30.lIkwN0RFqN0uusdkwj4DIbgk-bzlIK1ZMfsgzg701n8\"\n    }",
+			"collectionId": "2463bfbc-d4ca-df8b-4a44-beb8577e409c",
+			"responses": []
+		},
+		{
+			"id": "0b0c4ba2-cea6-4422-cb76-c3725ef5010b",
+			"headers": "",
+			"url": "http://127.0.0.1:8080/sign-up",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "email",
+					"value": "kapur.gayatri@gmail.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "qwerty",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"time": 1439838879003,
+			"name": "Sign Up",
+			"description": "Login into Healthwise\n\nURL: \n    \n    /sign-up\n\nMETHOD:\n    \n    POST\n\nPOST PARAMS:\n    \n    email = email\n    password = password\n\nRESPONSE:\n    \n    {\n      \"email\": \"some_new_user@gmail.com\",\n      \"updated_at\": \"2015-08-15T18:54:40.447Z\",\n      \"created_at\": \"2015-08-15T18:54:40.447Z\",\n      \"id\": 5\n    }",
+			"collectionId": "2463bfbc-d4ca-df8b-4a44-beb8577e409c",
+			"responses": [],
+			"rawModeData": null,
+			"descriptionFormat": null,
+			"folder": "d0957e0d-f0f8-7d3d-c081-1fe2b4125481"
+		},
+		{
+			"id": "4b1504cf-bf9a-717e-6cda-80e51e583d46",
+			"headers": "",
+			"url": "{{url}}/user/1/journal/2015-08-04/?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE0Mzk2NjQ2MzcsImV4cCI6MTQ0MjI1NjYzN30.lIkwN0RFqN0uusdkwj4DIbgk-bzlIK1ZMfsgzg701n8&activity=1&food=1",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1439676468820,
+			"name": "Get the Journal for a Date",
+			"description": "Get journal between two dates\n\nURL:    \n    \n    /user/:user_id/journal/:for_date\n\nMETHOD: \n\n    GET\n\nURL PARAMS:\n    \n    user_id = user_id\n    for_date = 'YYYY-MM-DD'\n    \nQUERY PARAMS:\n    \n    token = token\n    food = 1 (optional, will fetch foods attached to this journal)\n    activity = 1 (optional, will fetch activity attached to this journal)\n    \nRESPONSE:\n    \n    w/o foods/activities\n    \n    {\n      \"journal\": {\n        \"user_id\": 1,\n        \"journal_date\": \"2015-08-04T18:30:00.000Z\",\n        \"id\": 2,\n        \"current_weight\": 69,\n        \"recommended_calorie_intake\": 1256,\n        \"recommended_calorie_to_burn\": 900,\n        \"created_at\": \"2015-08-05T18:52:23.000Z\",\n        \"updated_at\": \"2015-08-05T23:28:04.000Z\"\n      }\n    }\n    \n    w/ foods\n    \n    {\n      \"journal\": {\n        \"user_id\": 1,\n        \"journal_date\": \"2015-08-04T18:30:00.000Z\",\n        \"id\": 2,\n        \"current_weight\": 69,\n        \"recommended_calorie_intake\": 1256,\n        \"recommended_calorie_to_burn\": 900,\n        \"created_at\": \"2015-08-05T18:52:23.000Z\",\n        \"updated_at\": \"2015-08-05T23:28:04.000Z\",\n        \"food_items\": [\n          {\n            \"id\": 3,\n            \"food_name\": \"Caeser Salad\",\n            \"meal_type\": \"L\",\n            \"calories\": 340,\n            \"carbohydrates\": -1,\n            \"proteins\": -1,\n            \"sodium\": -1,\n            \"cholestrol\": -1,\n            \"portion_size\": -1,\n            \"postassium\": -1,\n            \"fats\": -1,\n            \"journal_id\": 2,\n            \"user_id\": 1,\n            \"created_at\": \"2015-08-06T00:16:47.000Z\",\n            \"updated_at\": \"2015-08-06T00:16:47.000Z\"\n          }\n        ]\n      }\n    }\n    \n    w/ activities\n    \n    {\n      \"journal\": {\n        \"user_id\": 1,\n        \"journal_date\": \"2015-08-03T18:30:00.000Z\",\n        \"id\": 1,\n        \"current_weight\": 70,\n        \"recommended_calorie_intake\": 1280,\n        \"recommended_calorie_to_burn\": 1000,\n        \"created_at\": \"2015-08-05T18:52:23.000Z\",\n        \"updated_at\": \"2015-08-05T23:21:59.000Z\",\n        \"activity_items\": [\n          {\n            \"id\": 1,\n            \"activity_name\": \"Running\",\n            \"activity_type\": \"S\",\n            \"calories_burnt\": 120,\n            \"duration\": 15,\n            \"journal_id\": 1,\n            \"user_id\": 1,\n            \"created_at\": \"2015-08-05T18:52:48.000Z\",\n            \"updated_at\": \"2015-08-05T18:52:48.000Z\"\n          }\n        ]\n      }\n    }\n    \n    w/ both\n    \n    {\n      \"journal\": {\n        \"user_id\": 1,\n        \"journal_date\": \"2015-08-03T18:30:00.000Z\",\n        \"id\": 1,\n        \"current_weight\": 70,\n        \"recommended_calorie_intake\": 1280,\n        \"recommended_calorie_to_burn\": 1000,\n        \"created_at\": \"2015-08-05T18:52:23.000Z\",\n        \"updated_at\": \"2015-08-05T23:21:59.000Z\",\n        \"food_items\": [\n          {\n            \"id\": 1,\n            \"food_name\": \"Egg Fried Rice\",\n            \"meal_type\": \"L\",\n            \"calories\": 300,\n            \"carbohydrates\": -1,\n            \"proteins\": -1,\n            \"sodium\": -1,\n            \"cholestrol\": -1,\n            \"portion_size\": 1,\n            \"postassium\": -1,\n            \"fats\": -1,\n            \"journal_id\": 1,\n            \"user_id\": 1,\n            \"created_at\": \"2015-08-05T18:52:35.000Z\",\n            \"updated_at\": \"2015-08-05T18:52:35.000Z\"\n          },\n          {\n            \"id\": 2,\n            \"food_name\": \"Veg Pasta\",\n            \"meal_type\": \"L\",\n            \"calories\": 240,\n            \"carbohydrates\": -1,\n            \"proteins\": -1,\n            \"sodium\": -1,\n            \"cholestrol\": -1,\n            \"portion_size\": -1,\n            \"postassium\": -1,\n            \"fats\": -1,\n            \"journal_id\": 1,\n            \"user_id\": 1,\n            \"created_at\": \"2015-08-05T19:10:44.000Z\",\n            \"updated_at\": \"2015-08-05T19:10:44.000Z\"\n          }\n        ],\n        \"activity_items\": [\n          {\n            \"id\": 1,\n            \"activity_name\": \"Running\",\n            \"activity_type\": \"S\",\n            \"calories_burnt\": 120,\n            \"duration\": 15,\n            \"journal_id\": 1,\n            \"user_id\": 1,\n            \"created_at\": \"2015-08-05T18:52:48.000Z\",\n            \"updated_at\": \"2015-08-05T18:52:48.000Z\"\n          }\n        ]\n      }\n    }",
+			"collectionId": "2463bfbc-d4ca-df8b-4a44-beb8577e409c",
+			"responses": [],
+			"folder": "9b311a15-1db8-1c3d-d863-144e490cb0be",
+			"isFromCollection": true
+		},
+		{
+			"id": "54e3aa86-00ee-a92e-4605-a2b161512390",
+			"headers": "",
+			"url": "{{url}}/user/1/journal/2/food?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE0Mzk2ODAyMjMsImV4cCI6MTQ0MjI3MjIyM30.MCOHwvFTSQA_zt0d5EBf6_8WrD3LB16Hlmh8HembrfQ",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"time": 1439740045775,
+			"name": "Get Activity Items for a Journal with journal id",
+			"description": "Get Activity Items for a Journal with journal id\n\nURL: \n\n    /user/:user_id/journal/:journal_id/activity\n\nMETHOD:\n\n    GET\n\nURL PARAMS:\n\n    user_id = user_id\n    journal_id = journal_id (integer)\n\nQUERY PARAMS:\n    \n    token = token\n\nRESPONSE:\n        \n    {\n      \"activity_items\": [\n        {\n          \"id\": 2,\n          \"activity_name\": \"Swimming\",\n          \"activity_type\": \"S\",\n          \"calories_burnt\": 333,\n          \"duration\": 10,\n          \"journal_id\": 2,\n          \"user_id\": 1,\n          \"created_at\": \"2015-08-16T17:45:28.000Z\",\n          \"updated_at\": \"2015-08-16T17:45:28.000Z\"\n        },\n        {\n          \"id\": 3,\n          \"activity_name\": \"Swimming\",\n          \"activity_type\": \"S\",\n          \"calories_burnt\": 333,\n          \"duration\": 10,\n          \"journal_id\": 2,\n          \"user_id\": 1,\n          \"created_at\": \"2015-08-16T17:46:16.000Z\",\n          \"updated_at\": \"2015-08-16T17:46:16.000Z\"\n        },\n        {\n          \"id\": 4,\n          \"activity_name\": \"Swimming\",\n          \"activity_type\": \"S\",\n          \"calories_burnt\": 333,\n          \"duration\": 10,\n          \"journal_id\": 2,\n          \"user_id\": 1,\n          \"created_at\": \"2015-08-16T17:47:52.000Z\",\n          \"updated_at\": \"2015-08-16T17:47:52.000Z\"\n        }\n      ]\n    }",
+			"collectionId": "2463bfbc-d4ca-df8b-4a44-beb8577e409c",
+			"responses": [],
+			"folder": "fe700dc3-81ca-0495-d9bb-b19c34ee0321",
+			"isFromCollection": true,
+			"collectionRequestId": "54e3aa86-00ee-a92e-4605-a2b161512390",
+			"rawModeData": null,
+			"descriptionFormat": null
+		},
+		{
+			"id": "5a8c5658-42b9-593f-a56d-fb63440cca51",
+			"headers": "",
+			"url": "{{url}}/user/1/journal/2/food/submit",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "token",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE0Mzk2ODAyMjMsImV4cCI6MTQ0MjI3MjIyM30.MCOHwvFTSQA_zt0d5EBf6_8WrD3LB16Hlmh8HembrfQ",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "food_name",
+					"value": "Chicken Momos",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "meal_type",
+					"value": "L",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "calories",
+					"value": "210",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "carbohydrates",
+					"value": "-1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "proteins",
+					"value": "-1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "sodium",
+					"value": "-1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cholesterol",
+					"value": "-1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "portion_size",
+					"value": "-1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "potassium",
+					"value": "-1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "fats",
+					"value": "-1",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1439740268615,
+			"name": "Add a User Submitted Food Item in a Journal with journal id",
+			"description": "Add a User Submitted Food Item in a Journal with journal id\n\nURL: \n\n    /user/:user_id/journal/:journal_id/food/submit\n\nMETHOD: \n\n    GET\n\nURL PARAMS:\n\n    user_id = user_id\n    journal_id = journal_id (integer)\n\nQUERY PARAMS:\n    \n    token = token\n    \nPOST PARAMS:\n\n    food_name = string\n    meal_type = 'L'/'S'/'D'/'B'\n    calories = float, default(-1)\n    carbohydrates = float, default(-1)\n    proteins = float, default(-1)\n    sodium = float, default(-1)\n    cholestrol = float, default(-1)\n    portion_size = float, default(-1)\n    postassium = float, default(-1)\n    fats = float, default(-1)\n\n\nRESPONSE:\n        \n    {\n      \"food_item\": {\n          \"id\": 1,\n          \"food_name\": \"Egg Fried Rice\",\n          \"meal_type\": \"L\",\n          \"calories\": 300,\n          \"carbohydrates\": -1,\n          \"proteins\": -1,\n          \"sodium\": -1,\n          \"cholestrol\": -1,\n          \"portion_size\": 1,\n          \"postassium\": -1,\n          \"fats\": -1,\n          \"journal_id\": 1,\n          \"user_id\": 1,\n          \"created_at\": \"2015-08-05T18:52:35.000Z\",\n          \"updated_at\": \"2015-08-05T18:52:35.000Z\"\n        }\n    }\n\n",
+			"collectionId": "2463bfbc-d4ca-df8b-4a44-beb8577e409c",
+			"responses": [],
+			"folder": "091cd3cb-85bb-d29e-d8ae-e8b5b762d821",
+			"isFromCollection": true
+		},
+		{
+			"id": "5c1ad2cd-bb6c-4a66-0f64-0970b25cce20",
+			"headers": "",
+			"url": "{{url}}/user/1/journal/2015-08-12",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "token",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE0Mzk2NjQ2MzcsImV4cCI6MTQ0MjI1NjYzN30.lIkwN0RFqN0uusdkwj4DIbgk-bzlIK1ZMfsgzg701n8",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1439740386239,
+			"name": "Create a new Journal for a Date",
+			"description": "Create a Journal for a Date\n\nURL: \n   \n    /user/:user_id/journal/:journal_date\n\nMETHOD: \n\n    POST\n\nURL PARAMS:\n    \n    user_id = user_id\n    journal_date = 'YYYY-MM-DD'\n    \nQUERY PARAMS:\n    \n    token = token\n    \nRESPONSE:\n    \n    {\n      \"journal\": {\n        \"user_id\": \"1\",\n        \"journal_date\": \"2015-08-16\",\n        \"current_weight\": 69,\n        \"recommended_calorie_intake\": 1893.6227658745613,\n        \"recommended_calorie_to_burn\": 1893.6227658745613,\n        \"updated_at\": \"2015-08-15T22:34:53.198Z\",\n        \"created_at\": \"2015-08-15T22:34:53.198Z\",\n        \"id\": 5\n      }\n    }",
+			"collectionId": "2463bfbc-d4ca-df8b-4a44-beb8577e409c",
+			"responses": [],
+			"folder": "9b311a15-1db8-1c3d-d863-144e490cb0be"
+		},
+		{
+			"id": "6076f8a9-2927-9d2b-55cc-d0e57800c978",
+			"headers": "",
+			"url": "http://127.0.0.1:8080/user/1/journal/food?group=1&journal[0]=1&journal[1]=2&journal[2]=7&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE0Mzk2NjcwMzksImV4cCI6MTQ0MjI1OTAzOX0.7KevQbfg7YqmNFjpQynd_FH0jEI1FkXG5U4znJZGIRU",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1439782301519,
+			"name": "Get all Food Items  for multiple journal ids.",
+			"description": "Get all Food Items  for multiple journal ids.\n\nURL:\n\n    /user/:user_id/journal/food\n    \n    \nMETHOD:\n    \n    GET\n    \nURL PARAMS:\n\n    user_id = user_id\n    \nQUERY PARAMS:\n    \n    journal = Array[journal_ids]\n    token = token\n    group = 1 (optional, groups food_items by their journal_ids)\n\nURL EXAMPLE: \n    \n    /user/1/journal/food?journal[1]=1&journal[2]=2&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE0Mzk2NjcwMzksImV4cCI6MTQ0MjI1OTAzOX0.7KevQbfg7YqmNFjpQynd_FH0jEI1FkXG5U4znJZGIRU\n    \nRESPONSE:\n\n    {\n      \"food_items\": {\n        \"1\": [\n          {\n            \"id\": 1,\n            \"food_name\": \"Egg Fried Rice\",\n            \"meal_type\": \"L\",\n            \"calories\": 300,\n            \"carbohydrates\": -1,\n            \"proteins\": -1,\n            \"sodium\": -1,\n            \"cholesterol\": -1,\n            \"portion_size\": 1,\n            \"potassium\": -1,\n            \"fats\": -1,\n            \"journal_id\": 1,\n            \"user_id\": 1,\n            \"created_at\": \"2015-08-05T18:52:35.000Z\",\n            \"updated_at\": \"2015-08-05T18:52:35.000Z\"\n          },\n          {\n            \"id\": 2,\n            \"food_name\": \"Veg Pasta\",\n            \"meal_type\": \"L\",\n            \"calories\": 240,\n            \"carbohydrates\": -1,\n            \"proteins\": -1,\n            \"sodium\": -1,\n            \"cholesterol\": -1,\n            \"portion_size\": -1,\n            \"potassium\": -1,\n            \"fats\": -1,\n            \"journal_id\": 1,\n            \"user_id\": 1,\n            \"created_at\": \"2015-08-05T19:10:44.000Z\",\n            \"updated_at\": \"2015-08-05T19:10:44.000Z\"\n          },\n          {\n            \"id\": 11,\n            \"food_name\": \"Tandoori Chicken\",\n            \"meal_type\": \"L\",\n            \"calories\": 300,\n            \"carbohydrates\": -1,\n            \"proteins\": -1,\n            \"sodium\": -1,\n            \"cholesterol\": -1,\n            \"portion_size\": -1,\n            \"potassium\": -1,\n            \"fats\": -1,\n            \"journal_id\": 1,\n            \"user_id\": 1,\n            \"created_at\": \"2015-08-16T00:47:53.000Z\",\n            \"updated_at\": \"2015-08-16T00:47:53.000Z\"\n          },\n          {\n            \"id\": 14,\n            \"food_name\": \"Rajma Rice\",\n            \"meal_type\": \"L\",\n            \"calories\": 340,\n            \"carbohydrates\": -1,\n            \"proteins\": -1,\n            \"sodium\": -1,\n            \"cholesterol\": -1,\n            \"portion_size\": -1,\n            \"potassium\": -1,\n            \"fats\": -1,\n            \"journal_id\": 1,\n            \"user_id\": 1,\n            \"created_at\": \"2015-08-16T01:12:53.000Z\",\n            \"updated_at\": \"2015-08-16T01:12:53.000Z\"\n          },\n          {\n            \"id\": 15,\n            \"food_name\": \"Chicken Lolipop\",\n            \"meal_type\": \"L\",\n            \"calories\": 430,\n            \"carbohydrates\": -1,\n            \"proteins\": -1,\n            \"sodium\": -1,\n            \"cholesterol\": -1,\n            \"portion_size\": -1,\n            \"potassium\": -1,\n            \"fats\": -1,\n            \"journal_id\": 1,\n            \"user_id\": 1,\n            \"created_at\": \"2015-08-16T01:22:27.000Z\",\n            \"updated_at\": \"2015-08-16T01:22:27.000Z\"\n          },\n          {\n            \"id\": 16,\n            \"food_name\": \"Chicken Stir Fry\",\n            \"meal_type\": \"L\",\n            \"calories\": 336,\n            \"carbohydrates\": -1,\n            \"proteins\": -1,\n            \"sodium\": -1,\n            \"cholesterol\": -1,\n            \"portion_size\": -1,\n            \"potassium\": -1,\n            \"fats\": -1,\n            \"journal_id\": 1,\n            \"user_id\": 1,\n            \"created_at\": \"2015-08-16T01:23:12.000Z\",\n            \"updated_at\": \"2015-08-16T01:23:12.000Z\"\n          }\n        ],\n        \"2\": [\n          {\n            \"id\": 3,\n            \"food_name\": \"Caeser Salad\",\n            \"meal_type\": \"L\",\n            \"calories\": 340,\n            \"carbohydrates\": -1,\n            \"proteins\": -1,\n            \"sodium\": -1,\n            \"cholesterol\": -1,\n            \"portion_size\": -1,\n            \"potassium\": -1,\n            \"fats\": -1,\n            \"journal_id\": 2,\n            \"user_id\": 1,\n            \"created_at\": \"2015-08-06T00:16:47.000Z\",\n            \"updated_at\": \"2015-08-06T00:16:47.000Z\"\n          },\n          {\n            \"id\": 4,\n            \"food_name\": \"Chicken Momos\",\n            \"meal_type\": \"L\",\n            \"calories\": 210,\n            \"carbohydrates\": -1,\n            \"proteins\": -1,\n            \"sodium\": -1,\n            \"cholesterol\": -1,\n            \"portion_size\": -1,\n            \"potassium\": -1,\n            \"fats\": -1,\n            \"journal_id\": 2,\n            \"user_id\": 1,\n            \"created_at\": \"2015-08-16T00:12:13.000Z\",\n            \"updated_at\": \"2015-08-16T00:12:13.000Z\"\n          },\n          {\n            \"id\": 17,\n            \"food_name\": \"Chicken Momos\",\n            \"meal_type\": \"L\",\n            \"calories\": 210,\n            \"carbohydrates\": -1,\n            \"proteins\": -1,\n            \"sodium\": -1,\n            \"cholesterol\": -1,\n            \"portion_size\": -1,\n            \"potassium\": -1,\n            \"fats\": -1,\n            \"journal_id\": 2,\n            \"user_id\": 1,\n            \"created_at\": \"2015-08-16T01:27:49.000Z\",\n            \"updated_at\": \"2015-08-16T01:27:49.000Z\"\n          },\n          {\n            \"id\": 18,\n            \"food_name\": \"Chicken Schezwan\",\n            \"meal_type\": \"L\",\n            \"calories\": 210,\n            \"carbohydrates\": -1,\n            \"proteins\": -1,\n            \"sodium\": -1,\n            \"cholesterol\": -1,\n            \"portion_size\": -1,\n            \"potassium\": -1,\n            \"fats\": -1,\n            \"journal_id\": 2,\n            \"user_id\": 1,\n            \"created_at\": \"2015-08-16T15:48:13.000Z\",\n            \"updated_at\": \"2015-08-16T15:48:13.000Z\"\n          },\n          {\n            \"id\": 19,\n            \"food_name\": \"Chicken Fry\",\n            \"meal_type\": \"L\",\n            \"calories\": 210,\n            \"carbohydrates\": -1,\n            \"proteins\": -1,\n            \"sodium\": -1,\n            \"cholesterol\": -1,\n            \"portion_size\": -1,\n            \"potassium\": -1,\n            \"fats\": -1,\n            \"journal_id\": 2,\n            \"user_id\": 1,\n            \"created_at\": \"2015-08-16T15:50:28.000Z\",\n            \"updated_at\": \"2015-08-16T15:50:28.000Z\"\n          }\n        ]\n      }\n    }\n",
+			"collectionId": "2463bfbc-d4ca-df8b-4a44-beb8577e409c",
+			"responses": [],
+			"folder": "091cd3cb-85bb-d29e-d8ae-e8b5b762d821"
+		},
+		{
+			"id": "7de782a3-d6ad-b046-1d23-47893ae22cca",
+			"headers": "",
+			"url": "{{url}}/user/1/journal/2015-08-01/2015-08-030/?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE0Mzk2NjQ2MzcsImV4cCI6MTQ0MjI1NjYzN30.lIkwN0RFqN0uusdkwj4DIbgk-bzlIK1ZMfsgzg701n8",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1439740312262,
+			"name": "Get Journals between Dates",
+			"description": "Get journal between two dates\n\nURL:    \n    \n    /user/:user_id/journal/:from_date/:to_date\n\nMETHOD: \n\n    GET\n\nURL PARAMS:\n    \n    user_id = user_id\n    from_date = 'YYYY-MM-DD'\n    to_date = 'YYYY-MM-DD'\n    \nQUERY PARAMS:\n    \n    token = token\n    \nRESPONSE:\n\n    {\n      \"journals\": [\n        {\n          \"id\": 1,\n          \"journal_date\": \"2015-08-03T18:30:00.000Z\",\n          \"current_weight\": 70,\n          \"recommended_calorie_intake\": 1280,\n          \"recommended_calorie_to_burn\": 1000,\n          \"user_id\": 1,\n          \"created_at\": \"2015-08-05T18:52:23.000Z\",\n          \"updated_at\": \"2015-08-05T23:21:59.000Z\"\n        },\n        {\n          \"id\": 2,\n          \"journal_date\": \"2015-08-04T18:30:00.000Z\",\n          \"current_weight\": 69,\n          \"recommended_calorie_intake\": 1256,\n          \"recommended_calorie_to_burn\": 900,\n          \"user_id\": 1,\n          \"created_at\": \"2015-08-05T18:52:23.000Z\",\n          \"updated_at\": \"2015-08-05T23:28:04.000Z\"\n        }\n      ]\n    }",
+			"collectionId": "2463bfbc-d4ca-df8b-4a44-beb8577e409c",
+			"responses": [],
+			"folder": "9b311a15-1db8-1c3d-d863-144e490cb0be"
+		},
+		{
+			"id": "8568d72e-2e77-bc55-374e-4b54654f36ab",
+			"headers": "",
+			"url": "http://127.0.0.1:8080/user/5/profile",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "firstname",
+					"value": "Hwtestfirstname",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "lastname",
+					"value": "Hwtestlastname",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "age",
+					"value": "25",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "gender",
+					"value": "M",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "height",
+					"value": "178",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "activity_level",
+					"value": "SD",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "starting_weight",
+					"value": "75.5",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "goal_weight",
+					"value": "63.20",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "goal_time",
+					"value": "1439668022",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "meal_preferences",
+					"value": "vegetarian, eggs",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "token",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJpYXQiOjE0Mzk2NjgxNTAsImV4cCI6MTQ0MjI2MDE1MH0.7vgNWTlNdc2HDkh2yLLgFrVkyBq2V3NPOjXBozZfgzE",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1439668241041,
+			"name": "Create User Profile",
+			"description": "Create a new user Profile\n\nURL: \n\n    /user/:user_id/profile\n\nMETHOD: \n\n    POST\n\nURL PARAMS:\n\n    user_id = user_id\n\nPOST PARAMS:\n    \n    firstname = string\n    lastname = string\n    age = integer\n    gender = 'M'/'F'\n    height = integer\n    activity_level = 'SD'/'LA'/MA'/'VA'/'EA'\n    starting_weight = float\n    goal_weight = float\n    goal_time = unix_timestamp\n    meal_preferences = text separated by commas\n    health_conditions (optional) = text separated by commas\n    token = token\n    \n\nRESPONSE:\n    \n    {\n      \"profile\": {\n        \"firstname\": \"Hwtestfirstname\",\n        \"lastname\": \"Hwtestlastname\",\n        \"age\": \"25\",\n        \"gender\": \"M\",\n        \"height\": \"178\",\n        \"activity_level\": \"SD\",\n        \"starting_weight\": \"75.5\",\n        \"goal_weight\": \"63.20\",\n        \"goal_time\": \"2015-08-15T19:47:02.000Z\",\n        \"meal_preferences\": \"vegetarian, eggs\",\n        \"user_id\": \"5\",\n        \"updated_at\": \"2015-08-15T19:50:27.367Z\",\n        \"created_at\": \"2015-08-15T19:50:27.367Z\",\n        \"id\": 5\n      }\n    }\n",
+			"collectionId": "2463bfbc-d4ca-df8b-4a44-beb8577e409c",
+			"responses": [],
+			"folder": "6d1071e7-3943-0c20-0581-a6c441bb8e3b",
+			"isFromCollection": true
+		},
+		{
+			"id": "8e6fb795-c735-4947-1d50-8c89e0eee0ed",
+			"headers": "",
+			"url": "{{url}}/user/1/journal/2/activity/",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "token",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE0Mzk2ODAyMjMsImV4cCI6MTQ0MjI3MjIyM30.MCOHwvFTSQA_zt0d5EBf6_8WrD3LB16Hlmh8HembrfQ",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "activity_name",
+					"value": "Swimming",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "activity_type",
+					"value": "S",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "calories_burnt",
+					"value": "333",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "duration",
+					"value": "10",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"time": 1439747277672,
+			"name": "Add a Activity Item in a Journal with journal id",
+			"description": "Add a Activity Item in a Journal with journal id\n\nURL: \n\n    /user/:user_id/journal/:journal_id/activity\n\nMETHOD: \n\n    POST\n\nURL PARAMS:\n\n    user_id = user_id\n    journal_id = journal_id (integer)\n\nQUERY PARAMS:\n    \n    token = token\n    \nPOST PARAMS:\n\n    activity_name = string\n    activity_type = 'S'/'C' (standard/custom)\n    calories_burnt = float\n    duration = float (in minutes)\n\n\nRESPONSE:\n        \n    {\n      \"activity_item\": {\n        \"user_id\": \"1\",\n        \"journal_id\": \"2\",\n        \"activity_name\": \"Swimming\",\n        \"activity_type\": \"S\",\n        \"calories_burnt\": \"333\",\n        \"duration\": \"10\",\n        \"updated_at\": \"2015-08-16T17:46:15.778Z\",\n        \"created_at\": \"2015-08-16T17:46:15.778Z\",\n        \"id\": 3\n      }\n    }\n\n",
+			"collectionId": "2463bfbc-d4ca-df8b-4a44-beb8577e409c",
+			"responses": [],
+			"folder": "fe700dc3-81ca-0495-d9bb-b19c34ee0321",
+			"isFromCollection": true,
+			"collectionRequestId": "8e6fb795-c735-4947-1d50-8c89e0eee0ed",
+			"rawModeData": null,
+			"descriptionFormat": null
+		},
+		{
+			"id": "936ce961-f63c-75fc-de06-2b0930f38641",
+			"headers": "",
+			"url": "http://127.0.0.1:8080/user/1/",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "email",
+					"value": "some_new_user@gmail.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "old_password",
+					"value": "sarah2011",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "new_password",
+					"value": "sarah2010",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "token",
+					"value": "token",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1439666995712,
+			"name": "Update User Password",
+			"description": "Change password\n\nURL: \n    \n    /user/:user_id\n\nMETHOD: \n    \n    POST\n\nURL PARAMS:\n    \n    user_id = user_id\n\nPOST PARAMS:\n    \n    email = email\n    old_password = old_password\n    new_password = new_password\n    token = token\n\nRESPONSE:\n    \n    {\n      \"user\": {\n        \"id\": 5,\n        \"email\": \"some_new_user@gmail.com\",\n        \"created_at\": \"2015-08-15T18:54:40.000Z\",\n        \"updated_at\": \"2015-08-15T19:08:38.601Z\"\n      }\n    }",
+			"collectionId": "2463bfbc-d4ca-df8b-4a44-beb8577e409c",
+			"responses": [],
+			"folder": "9d2cac10-7a1d-95cc-4740-46b639ce3df8",
+			"isFromCollection": true
+		},
+		{
+			"id": "94842580-45dc-36d9-fa76-f1ca65b3e76f",
+			"headers": "",
+			"url": "http://127.0.0.1:8080/user/1/profile?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE0Mzk2NjcwMzksImV4cCI6MTQ0MjI1OTAzOX0.7KevQbfg7YqmNFjpQynd_FH0jEI1FkXG5U4znJZGIRU",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1439740430693,
+			"name": "Get User Profile",
+			"description": "Get user profile\n\nURL: \n\n    /user/:user_id\n    \nMETHOD:\n    \n    GET\n\nURL PARAMS:\n    \n    user_id = user_id\n\nQUERY_PARAMS:\n\n    token = token\n    \nRESPONSE:\n\n    {\n      \"profile\": {\n        \"user_id\": 1,\n        \"id\": 1,\n        \"firstname\": \"HWFirstName\",\n        \"lastname\": \"HWLastName\",\n        \"age\": 21,\n        \"gender\": \"M\",\n        \"height\": 170,\n        \"activity_level\": \"SD\",\n        \"starting_weight\": 70.5,\n        \"goal_weight\": 60,\n        \"goal_time\": \"2015-08-07T18:30:00.000Z\",\n        \"meal_preferences\": \"none\",\n        \"health_conditions\": \"none\",\n        \"created_at\": \"2015-08-05T18:52:15.000Z\",\n        \"updated_at\": \"2015-08-15T16:32:36.000Z\"\n      }\n    }\n    \n    ",
+			"collectionId": "2463bfbc-d4ca-df8b-4a44-beb8577e409c",
+			"responses": [],
+			"folder": "6d1071e7-3943-0c20-0581-a6c441bb8e3b",
+			"isFromCollection": true
+		},
+		{
+			"id": "97795a29-1d4a-ea9a-f23a-3176c758c56b",
+			"headers": "",
+			"url": "{{url}}/user/1/journal/2/food?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE0Mzk2ODAyMjMsImV4cCI6MTQ0MjI3MjIyM30.MCOHwvFTSQA_zt0d5EBf6_8WrD3LB16Hlmh8HembrfQ",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1439740045775,
+			"name": "Get Food Items for a Journal with journal id",
+			"description": "Get All the Food Items for a Journal with a journal id.\n\nURL: \n\n    /user/:user_id/journal/:journal_id/food\n\nMETHOD:\n\n    GET\n\nURL PARAMS:\n\n    user_id = user_id\n    journal_id = journal_id (integer)\n\nQUERY PARAMS:\n    \n    token = token\n\nRESPONSE:\n        \n    {\n      \"food_items\": [\n        {\n          \"id\": 1,\n          \"food_name\": \"Egg Fried Rice\",\n          \"meal_type\": \"L\",\n          \"calories\": 300,\n          \"carbohydrates\": -1,\n          \"proteins\": -1,\n          \"sodium\": -1,\n          \"cholestrol\": -1,\n          \"portion_size\": 1,\n          \"postassium\": -1,\n          \"fats\": -1,\n          \"journal_id\": 1,\n          \"user_id\": 1,\n          \"created_at\": \"2015-08-05T18:52:35.000Z\",\n          \"updated_at\": \"2015-08-05T18:52:35.000Z\"\n        },\n        {\n          \"id\": 2,\n          \"food_name\": \"Veg Pasta\",\n          \"meal_type\": \"L\",\n          \"calories\": 240,\n          \"carbohydrates\": -1,\n          \"proteins\": -1,\n          \"sodium\": -1,\n          \"cholestrol\": -1,\n          \"portion_size\": -1,\n          \"postassium\": -1,\n          \"fats\": -1,\n          \"journal_id\": 1,\n          \"user_id\": 1,\n          \"created_at\": \"2015-08-05T19:10:44.000Z\",\n          \"updated_at\": \"2015-08-05T19:10:44.000Z\"\n        }\n      ]\n    }\n\n",
+			"collectionId": "2463bfbc-d4ca-df8b-4a44-beb8577e409c",
+			"responses": [],
+			"folder": "091cd3cb-85bb-d29e-d8ae-e8b5b762d821"
+		},
+		{
+			"id": "bfd5eb3f-83d8-f788-b0b5-afdfbc6f8214",
+			"headers": "",
+			"url": "http://127.0.0.1:8080/user/5/profile",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [
+				{
+					"key": "firstname",
+					"value": "Hwtestfirstname",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "lastname",
+					"value": "Hwtestlastname",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "age",
+					"value": "25",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "gender",
+					"value": "M",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "height",
+					"value": "178",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "activity_level",
+					"value": "SD",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "starting_weight",
+					"value": "75.67",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "goal_weight",
+					"value": "63.20",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "goal_time",
+					"value": "1439668022",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "meal_preferences",
+					"value": "vegetarian, eggs",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "token",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJpYXQiOjE0Mzk2NjgxNTAsImV4cCI6MTQ0MjI2MDE1MH0.7vgNWTlNdc2HDkh2yLLgFrVkyBq2V3NPOjXBozZfgzE",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1439740458367,
+			"name": "Update User Profile",
+			"description": "Create a new user Profile\n\nURL: \n\n    /user/:user_id/profile\n\nMETHOD: \n    \n    PUT\n\nURL PARAMS:\n\n    user_id = user_id\n\nPOST PARAMS:\n    \n    firstname = string (optional)\n    lastname = string (optional)\n    age = integer (optional)\n    gender = 'M'/'F' (optional)\n    height = integer (optional)\n    activity_level = 'SD'/'LA'/MA'/'VA'/'EA' (optional)\n    starting_weight = float (optional)\n    goal_weight = float (optional)\n    goal_time = unix_timestamp (optional)\n    meal_preferences = text separated by commas (optional)\n    health_conditions = text separated by commas (optional)\n    token = token\n    \n\nRESPONSE:\n    \n    {\n      \"profile\": {\n        \"firstname\": \"Hwtestfirstname\",\n        \"lastname\": \"Hwtestlastname\",\n        \"age\": \"25\",\n        \"gender\": \"M\",\n        \"height\": \"178\",\n        \"activity_level\": \"SD\",\n        \"starting_weight\": \"75.5\",\n        \"goal_weight\": \"63.20\",\n        \"goal_time\": \"2015-08-15T19:47:02.000Z\",\n        \"meal_preferences\": \"vegetarian, eggs\",\n        \"user_id\": \"5\",\n        \"updated_at\": \"2015-08-15T19:50:27.367Z\",\n        \"created_at\": \"2015-08-15T19:50:27.367Z\",\n        \"id\": 5\n      }\n    }\n",
+			"collectionId": "2463bfbc-d4ca-df8b-4a44-beb8577e409c",
+			"responses": [],
+			"folder": "6d1071e7-3943-0c20-0581-a6c441bb8e3b",
+			"isFromCollection": true
+		},
+		{
+			"id": "cc03a087-1c22-8ec6-84d1-5f15bd90ee08",
+			"headers": "",
+			"url": "http://127.0.0.1:8080/relogin",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "email",
+					"value": "kapur.gayatri@gmail.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "token",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE0NDY0Nzk0MzksImV4cCI6MTQ0OTA3MTQzOX0.GVQqHuTNKllySOqKfAkh2OZyuDNs2co64gzk4TotiX8",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1446479559312,
+			"name": "Relogin",
+			"description": "Relogin using old token\n\nURL: \n    \n    /relogin\n\nMETHOD: \n    \n    POST\n\nPOST PARAMS:\n    \n    email = email\n    token = token\n\nRESPONSE:\n\n    {\n      \"user\": {\n        \"id\": 5,\n        \"email\": \"some_new_user@gmail.com\",\n        \"created_at\": \"2015-08-15T18:54:40.000Z\",\n        \"updated_at\": \"2015-08-15T18:54:40.000Z\"\n      },\n      \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJpYXQiOjE0Mzk2NjUwMzQsImV4cCI6MTQ0MjI1NzAzNH0.jrZ7uIq016ep74dF5SMqm_GsTkBN_wMHBQVYXuN28T8\"\n    }",
+			"collectionId": "2463bfbc-d4ca-df8b-4a44-beb8577e409c",
+			"responses": []
+		},
+		{
+			"id": "e0c189b3-5abf-5df4-2fcf-3ecb8a610cf4",
+			"headers": "",
+			"url": "http://127.0.0.1:8080/user/1/?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE0Mzk2NjcwMzksImV4cCI6MTQ0MjI1OTAzOX0.7KevQbfg7YqmNFjpQynd_FH0jEI1FkXG5U4znJZGIRU",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1439740416608,
+			"name": "Get User",
+			"description": "Get user\n\nURL: \n\n    /user/:user_id\n\nMETHOD: \n\n    GET\n\nURL PARAMS:\n    \n    user_id = user_id\n\nQUERY PARAMS\n    \n    token = token\n    \nRESPONSE:\n    \n    {\n      \"user\": {\n        \"id\": 5,\n        \"email\": \"some_new_user@gmail.com\",\n        \"created_at\": \"2015-08-15T18:54:40.000Z\",\n        \"updated_at\": \"2015-08-15T19:08:39.000Z\"\n      }\n    }",
+			"collectionId": "2463bfbc-d4ca-df8b-4a44-beb8577e409c",
+			"responses": [],
+			"folder": "9d2cac10-7a1d-95cc-4740-46b639ce3df8",
+			"isFromCollection": true
+		},
+		{
+			"id": "e5cf7a18-4589-7875-d367-2165318f6ea2",
+			"headers": "",
+			"url": "{{url}}/user/1/journal/2/food?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE0Mzk2ODAyMjMsImV4cCI6MTQ0MjI3MjIyM30.MCOHwvFTSQA_zt0d5EBf6_8WrD3LB16Hlmh8HembrfQ",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "token",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE0Mzk2ODAyMjMsImV4cCI6MTQ0MjI3MjIyM30.MCOHwvFTSQA_zt0d5EBf6_8WrD3LB16Hlmh8HembrfQ",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "food_name",
+					"value": "Chicken Fry",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "meal_type",
+					"value": "L",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "calories",
+					"value": "210",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "carbohydrates",
+					"value": "-1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "proteins",
+					"value": "-1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "sodium",
+					"value": "-1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cholesterol",
+					"value": "-1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "portion_size",
+					"value": "-1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "potassium",
+					"value": "-1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "fats",
+					"value": "-1",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1439740293487,
+			"name": "Add a Food Item in a Journal with journal id",
+			"description": "Add a Food Item in a Journal with journal id\n\nURL: \n\n    /user/:user_id/journal/:journal_id/food\n\nMETHOD: \n\n    POST\n\nURL PARAMS:\n\n    user_id = user_id\n    journal_id = journal_id (integer)\n\nQUERY PARAMS:\n    \n    token = token\n\nPOST PARAMS:\n\n    food_name = string\n    meal_type = 'L'/'S'/'D'/'B'\n    calories = float, default(-1)\n    carbohydrates = float, default(-1)\n    proteins = float, default(-1)\n    sodium = float, default(-1)\n    cholestrol = float, default(-1)\n    portion_size = float, default(-1)\n    postassium = float, default(-1)\n    fats = float, default(-1)\n\nRESPONSE:\n        \n    {\n      \"food_item\":{\n          \"id\": 2,\n          \"food_name\": \"Veg Pasta\",\n          \"meal_type\": \"L\",\n          \"calories\": 240,\n          \"carbohydrates\": -1,\n          \"proteins\": -1,\n          \"sodium\": -1,\n          \"cholestrol\": -1,\n          \"portion_size\": -1,\n          \"postassium\": -1,\n          \"fats\": -1,\n          \"journal_id\": 1,\n          \"user_id\": 1,\n          \"created_at\": \"2015-08-05T19:10:44.000Z\",\n          \"updated_at\": \"2015-08-05T19:10:44.000Z\"\n        }\n    }\n\n",
+			"collectionId": "2463bfbc-d4ca-df8b-4a44-beb8577e409c",
+			"responses": [],
+			"folder": "091cd3cb-85bb-d29e-d8ae-e8b5b762d821",
+			"isFromCollection": true
+		}
+	]
+}
