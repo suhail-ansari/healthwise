@@ -9,6 +9,7 @@ module.exports = {
   app: {
     jwtSecret: '^wf$qzwlBuj[[O7o*W4qg3r67XiZ"5',
     jwtExpireMinutes: 43200, //30 days validity for json webtoken
-    jwtExpireSeconds: (43200*60)
+    jwtExpireSeconds: (43200*60),
+    port: 8080
   }
 }

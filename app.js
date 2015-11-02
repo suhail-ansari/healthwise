@@ -17,9 +17,9 @@ require('./routes')(app);
 
 var server = new (require('http')).Server(app);
 
-server.listen(8080, function(err){
+server.listen(config.app.port, function(err){
 	if(err){
 		return process.exit(new Error('error while starting server @port 8080'));
 	}
-	console.log('server listening @port 8080');
+	console.log('server listening @port ', config.app.port);
 });

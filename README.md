@@ -13,7 +13,5 @@ First you need to change the config.
   1. since, the tables were created before by the python "syncdb", you can go to config.js,
   and change the config for mysql or any other config you see,
   the names of the config options are sort of self explanatory.
-  3. assuming you have node installed (version > 0.10.30), now to install dependencies, run "npm install" in the project root directory
-  2. now to run the server run "node app.js"
-
-  
+  2. assuming you have node installed (version > 0.10.30), now to install dependencies, run "npm install" in the project root directory
+  3. now to run the server run "node app.js"
