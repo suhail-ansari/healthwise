@@ -15,3 +15,7 @@ First you need to change the config.
   the names of the config options are sort of self explanatory.
   2. assuming you have node installed (version > 0.10.30), now to install dependencies, run "npm install" in the project root directory
   3. now to run the server run "node app.js"
+
+# to access APIs docs
+  1. Install postman extension for chrome and import the "Healthwise.json.postman_collection" file.
+  2. The api and their params are listed in their segregated according to their namespace.
